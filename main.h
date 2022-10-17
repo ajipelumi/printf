@@ -19,7 +19,7 @@ typedef struct print
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-int func_call(char *format, print_func ops[], va_list ap);
+int func_call(const char *format, print_func ops[], va_list ap);
 int print_char(va_list ap);
 int print_string(va_list ap);
 int print_percent(__attribute__((unused))va_list ap);

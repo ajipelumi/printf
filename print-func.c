@@ -28,15 +28,18 @@ int print_char(va_list ap)
 
 int print_string(va_list ap)
 {
-	unsigned int i, len = 0;
+	unsigned int i;
 	char *ptr = va_arg(ap, char *);
 
-	if (ptr)
-		for (i = 0; ptr[i] != '\0'; i++)
-		{
-			len++;
-		}
-	return (write(1, ptr, len));
+	if (ptr == NULL)
+	{
+		ptr = "(null)";
+	}
+	for (i = 0; ptr[i] != '\0'; i++)
+	{
+		_putchar(ptr[i]);
+	}
+	return (i);
 }
 
 /**

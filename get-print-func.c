@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdarg.h>
-#include <unistd.h>
 #include "main.h"
 
 /**
@@ -15,46 +14,28 @@
 
 int _printf(const char *format, ...)
 {
+	int count;
+	char *temp;
 	va_list ap;
-	unsigned int i, j;
-	char c = '\n';
 	print_func ops[] = {
 		{"c", print_char},
 		{"s", print_string},
-		{"%", print_percent}
+		{"%", print_percent},
+		{NULL, NULL}
 	};
 
-	va_start(ap, format);
-	i = 0; /* start of our format string */
-	while (format && format[i])
+	if (format == NULL)
 	{
-		j = 0;
-		/**
-		* start of our struct "ops". We have only structured
-		* three (3) characters in our format string meaning only three (3)
-		* characters will return a function if found in our format string.
-		*/
-		if (format[i] == '%')
-		{
-			i++;
-			while (j < 3 && format[i] != *(ops[j]).str)
-			{
-			/**
-			* the first character in our format string will be scanned
-			* through our three (3) structured characters, if the first character does
-			* not match, it increases j to the next character until there is a match,
-			*/
-				j++;
-			}
-			if (j < 3)
-			{
-				ops[j].func(ap);
-			}
-		}
-	i++;
+		return (-1);
+	}
+	else
+	{
+	va_start(ap, format);
+	temp = (char *) format;
+	/* call our func_call function */
+	count = func_call(temp, ops, ap);
 	}
 	va_end(ap);
-	return (write(1, &c, 1)); /* print a new line */
+	return (count);
 }
-
 

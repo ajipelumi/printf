@@ -23,6 +23,10 @@ int _printf(const char *format, ...)
 		{"d", print_integer},
 		{"i", print_integer},
 		{"b", print_unsignedBin},
+		{"u", print_unsignedInt},
+		{"o", print_unsignedOct},
+		{"x", print_unsignedHex},
+		{"X", print_unsignedHex},
 		{NULL, NULL}
 	};
 

@@ -16,7 +16,7 @@ int print_unsignedBin(va_list ap)
 	int count = 0;
 
 	num = va_arg(ap, int);
-	/* call print_num function */
+	/* call print_binary function */
 	count += print_binary(num);
 	return (count);
 }

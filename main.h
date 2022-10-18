@@ -25,6 +25,9 @@ int print_string(va_list ap);
 int print_percent(__attribute__((unused))va_list ap);
 int print_integer(va_list ap);
 int print_unsignedBin(va_list ap);
+int print_unsignedInt(va_list ap);
+int print_unsignedOct(va_list ap);
+int print_unsignedHex(va_list ap);
 
 
 #endif

@@ -28,6 +28,6 @@ int print_unsignedBin(va_list ap);
 int print_unsignedInt(va_list ap);
 int print_unsignedOct(va_list ap);
 int print_unsignedHex(va_list ap);
-
+int print_unsignedHeX(va_list ap);
 
 #endif

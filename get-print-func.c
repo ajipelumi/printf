@@ -24,6 +24,9 @@ int _printf(const char *format, ...)
 		{"i", print_integer},
 		{"b", print_unsignedBin},
 		{"u", print_unsignedInt},
+		{"o", print_unsignedOct},
+		{"x", print_unsignedHex},
+		{"X", print_unsignedHeX},
 		{NULL, NULL}
 	};
 

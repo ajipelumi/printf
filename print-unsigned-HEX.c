@@ -18,7 +18,7 @@ int print_unsignedHeX(va_list ap)
 
 	num = va_arg(ap, int);
 	/* call print_HEX function */
-	count = print_HEX(num);
+	count += print_HEX(num);
 	return (count);
 }
 
@@ -48,7 +48,7 @@ int print_HEX(unsigned int num)
 	{
 	_putchar(rem + '0'); /* prints integers 0 - 9 */
 	}
-	return (count);
+	return (count + 1);
 }
 
 /**

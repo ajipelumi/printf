@@ -87,5 +87,5 @@ int big_HEX(unsigned int rem)
 		default:
 			return (-1);
 	}
-	return (count + 1);
+	return (count);
 }

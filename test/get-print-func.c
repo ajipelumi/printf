@@ -15,12 +15,18 @@
 int _printf(const char *format, ...)
 {
 	int count;
-	char *temp;
 	va_list ap;
 	print_func ops[] = {
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_percent},
+		{"d", print_integer},
+		{"i", print_integer},
+		{"b", print_unsignedBin},
+		{"u", print_unsignedInt},
+		{"o", print_unsignedOct},
+		{"x", print_unsignedHex},
+		{"X", print_unsignedHeX},
 		{NULL, NULL}
 	};
 
@@ -28,13 +34,10 @@ int _printf(const char *format, ...)
 	{
 		return (-1);
 	}
-	else
-	{
+
 	va_start(ap, format);
-	temp = (char *) format;
 	/* call our func_call function */
-	count = func_call(temp, ops, ap);
-	}
+	count = func_call(format, ops, ap);
 	va_end(ap);
 	return (count);
 }

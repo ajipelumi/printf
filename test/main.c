@@ -10,13 +10,20 @@
 
 int main(void)
 {
+	int len, len2;
+	long int l = UINT_MAX;
 
-    _printf("Character:[%c]\n", 'H');
-    printf("Character:[%c]\n", 'H');
-    _printf("String:[%s]\n", "I am a string !");
-    printf("String:[%s]\n", "I am a string !");
-    _printf("Percent:[%%]\n");
-    printf("Percent:[%%]\n");
-    return (0);
+	l += 1024;
+	len = _printf("%o", l);
+	len2 = printf("%o", l);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	return (0);
 }
+
 

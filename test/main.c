@@ -10,13 +10,15 @@
 
 int main(void)
 {
-	int len, len2;
-	long int l = UINT_MAX;
+	int i, len, len2;
 
-	l += 1024;
-	len = _printf("%o", l);
-	len2 = printf("%o", l);
+	len = _printf("%x\n", UINT_MAX);
+	len2 = printf("%x\n", UINT_MAX);
 	fflush(stdout);
+	i = len2 - len;
+	printf("%d\n", len);
+	printf("%d\n", len2);
+	printf("%d\n", i);
 	if (len != len2)
 	{
 		printf("Lengths differ.\n");
